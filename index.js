@@ -56,8 +56,12 @@ Sprites: {
     jump: {
         imageSrc: '/img/samuraiMack/Jump.png',
         framesMax: 2
+    },
+    fall: {
+        imageSrc: '/img/samuraiMack/Fall.png',
+        framesMax: 2
+    }
 
-}
 }});
 
 const enemy = new Fighter({
@@ -125,17 +129,20 @@ function animate() {
 } else{
     player.switchSprite('idle')
 }
-
+//jumping
     if (player.velocity.y < 0) {
         player.switchSprite('jump')
-    }}
+    }
+    else if (player.velocity.y > 0) {
+        player.switchSprite('fall')
+    }
 
     //Enemy movement
     if (keys.ArrowLeft.pressed && enemy.lastkey === 'ArrowLeft') {
         enemy.velocity.x = -5
     } else if (keys.ArrowRight.pressed && enemy.lastkey === 'ArrowRight'){
-        enemy.velocity.x = 5
-    }
+        enemy.velocity.x = 5}
+    
     // detection for collision
     if (
         rectangularcollision({
@@ -164,7 +171,7 @@ function animate() {
     if (enemy.health <= 0 || player.health <= 0){
     determineWinner( player, enemy, timerId )
     }
-
+}
 
 animate()
 

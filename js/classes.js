@@ -108,11 +108,13 @@ class Fighter extends Sprite {
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
 
+        //gravity function
       if(this.position.y + this.height + this.velocity.y >= canvas.height - 96){
         this.velocity.y = 0
-      }else 
-        this.velocity.y += gravity
-    }
+        this.position.y = 330}
+      else {this.velocity.y += gravity
+      }
+ }
 
     attack() {
         this.isAttacking = true
@@ -145,6 +147,13 @@ switchSprite(Sprite){
             this.framesCurrent = 0
         }
             break
+        case 'fall':
+            if (this.image !== this.Sprites.fall.image){
+            this.image = this.Sprites.fall.image
+            this.framesMax = this.Sprites.fall.framesMax
+            this.framesCurrent = 0
+        }
+            break
+        }
+    }
 }
-
-}}
