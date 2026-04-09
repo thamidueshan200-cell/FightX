@@ -51,11 +51,14 @@ Sprites: {
     },
     run: {
         imageSrc: '/img/samuraiMack/Run.png',
-        framesMax: 8,
-    }
+        framesMax: 8
+    },
+    jump: {
+        imageSrc: '/img/samuraiMack/Jump.png',
+        framesMax: 2
 
 }
-})
+}});
 
 const enemy = new Fighter({
 position: {
@@ -112,14 +115,20 @@ function animate() {
     enemy.velocity.x = 0
 
     //player movement
-    player.image = player.Sprites.idle.image
+
     if (keys.a.pressed && player.lastkey === 'a') {
         player.velocity.x = -5
-        player.image = player.Sprites.run.image
+        player.switchSprite('run')
     } else if (keys.d.pressed && player.lastkey === 'd'){
         player.velocity.x = 5
-        player.image = player.Sprites.run.image
-    }
+        player.switchSprite('run')
+} else{
+    player.switchSprite('idle')
+}
+
+    if (player.velocity.y < 0) {
+        player.switchSprite('jump')
+    }}
 
     //Enemy movement
     if (keys.ArrowLeft.pressed && enemy.lastkey === 'ArrowLeft') {
@@ -155,7 +164,7 @@ function animate() {
     if (enemy.health <= 0 || player.health <= 0){
     determineWinner( player, enemy, timerId )
     }
-}
+
 
 animate()
 
