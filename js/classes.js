@@ -22,6 +22,7 @@ class Sprite {
 
     draw(){
         if (!this.onload) return
+        if (!this.image.complete) return
         c.drawImage( 
             this.image, 
             this.framesCurrent * (this.image.width / this.framesMax), 
@@ -103,7 +104,9 @@ class Fighter extends Sprite {
     update() {
         this.draw() 
         this.animatedFrames()
-      
+
+      this.attackBox.position.x = this.position.x + this.attackBox.offset.x
+      this.attackBox.position.y = this.position.y + this.attackBox.offset.y
 
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
