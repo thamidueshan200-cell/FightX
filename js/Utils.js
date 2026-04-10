@@ -10,7 +10,7 @@ function rectangularcollision({rectangle1, rectangle2 }) {
     )
 }
 
-function determineWinner(player, enemy, timerId) {
+function determineWinner({player, enemy, timerId}) {
     clearTimeout(timerId)
             document.querySelector('#displayText').style.display = 'flex'
 if (player.health === enemy.health) {

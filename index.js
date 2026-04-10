@@ -44,7 +44,7 @@ scale: 2.5,
 offset: {
 x: 215,
 y: 156},
-Sprites: {
+sprites: {
     idle: {
         imageSrc: './img/samuraiMack/idle.png',
         framesMax: 8
@@ -88,7 +88,7 @@ imageSrc: './img/kenji/Jump.png',
             x: 215,
             y: 167
 },
-Sprites: {
+sprites: {
     idle: {
 imageSrc: './img/kenji/idle.png',
         framesMax: 4
@@ -152,10 +152,10 @@ function animate() {
 
     //player movement
 
-    if (keys.a.pressed && player.lastkey === 'a') {
+    if (keys.a.pressed && player.lastKey === 'a') {
         player.velocity.x = -5
         player.switchSprite('run')
-    } else if (keys.d.pressed && player.lastkey === 'd'){
+    } else if (keys.d.pressed && player.lastKey === 'd'){
         player.velocity.x = 5
         player.switchSprite('run')
 } else{
@@ -170,10 +170,10 @@ function animate() {
     }
 
     //Enemy movement
-    if (keys.ArrowLeft.pressed && enemy.lastkey === 'ArrowLeft') {
+    if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
         enemy.velocity.x = -5
         enemy.switchSprite('run')
-    } else if (keys.ArrowRight.pressed && enemy.lastkey === 'ArrowRight'){
+    } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight'){
         enemy.velocity.x = 5
         enemy.switchSprite('run')
         } else{
@@ -224,11 +224,11 @@ window.addEventListener('keydown', (event) =>{
 switch(event.key) {
     case 'd':
     keys.d.pressed = true
-    player.lastkey = 'd'
+    player.lastKey = 'd'
         break
     case 'a':
     keys.a.pressed = true
-    player.lastkey = 'a'
+    player.lastKey = 'a'
         break
     case 'w':
     player.velocity.y = -20
@@ -239,11 +239,11 @@ switch(event.key) {
 
     case 'ArrowRight':
     keys.ArrowRight.pressed = true
-    enemy.lastkey = 'ArrowRight'
+    enemy.lastKey = 'ArrowRight'
         break
     case 'ArrowLeft':
     keys.ArrowLeft.pressed = true
-    enemy.lastkey = 'ArrowLeft'
+    enemy.lastKey = 'ArrowLeft'
         break
     case 'ArrowUp':
     enemy.velocity.y = -20
