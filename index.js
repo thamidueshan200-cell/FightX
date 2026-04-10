@@ -38,7 +38,7 @@ offset: {
     x: 0,
     y: 0
 },
-imageSrc: './img/samuraiMack/idle.png',
+imageSrc: './img/samuraiMack/Idle.png',
 framesMax: 8,
 scale: 2.5,
 offset: {
